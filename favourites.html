@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #fav{
+            display: flex;
+            justify-content: space-evenly;
+            padding:1%;
+            box-shadow: rgba(0,0,0,0.24) 3px 8px;
+        }
+        #fav>div{
+            display: flex;
+        }
+        #fav a{
+            text-decoration:none;
+            color: green;
+            font-size: 30px;
+        }
+        table,td,th{
+            border:1px solid #ddd;
+            text-align:left;
+        }
+        table{
+            border-collapse: collapse;
+            width:70%;
+            margin: auto;
+            margin-top: 50px;
+        }
+        th,td{
+            padding:15px;
+        }
+        thread>tr>th{
+            background-color: teal;
+            color: white;
+        }
+        *{
+      margin:0;
+      padding:0;
+      box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="fav">
+        <div>
+            <a href="./index.html">Home</a>
+        </div>
+        <div>
+            <a href="./contact.html">ContactList</a>
+        </div>
+        <div>
+            <a href="./favourites.html">Favourites</a>
+        </div>
+        
+        
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Contact Name
+                    </th>
+                    <th>
+                        Mobile Number
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tBody">
+
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    var arr=JSON.parse(localStorage.getItem("Favourites"))
+console.log(arr)
+
+var table=document.querySelector("#tBody")
+table.innerHTML=''
+arr.forEach((ele) => {
+    var tr=document.createElement("tr")
+
+    var td1=document.createElement("td")
+    td1.innerText=ele.Name
+
+    var td2=document.createElement("td")
+    td2.innerText=ele.Number
+
+    var td3=document.createElement("td")
+    td3.innerText=ele.category
+
+    
+    tr.append(td1,td2,td3)
+    table.append(tr)
+});
+</script>
+</html>
